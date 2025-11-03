@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <title>Anandito Fernanda - Junior IoT Developer</title>
     <style>
         /* Global Styles */
@@ -11,7 +15,7 @@
             font-family: 'Courier New', monospace; /* Programmer-like font */
             margin: 0;
             padding: 0;
-            background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #16213e, #0f3460, #0a0a0a); /* Dark gradient with smooth transition */
+            background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #152244, #0f5860, #0a0a0a); /* Dark gradient with smooth transition */
             background-size: 400% 400%;
             animation: gradientShift 30s ease infinite; /* Slower animation for better movement */
             color: #ffffff;
@@ -354,13 +358,43 @@
             width: 50px;
             height: 50px;
             margin-bottom: 10px;
-            transition: transform 0.3s;
+            transition: transform 0.5s;
         }
 
         .skill-item:hover img {
-            transform: rotateY(180deg);
+            transform: rotateY(360deg);
+        }
+        /* Social Media */
+        .social {
+            text-align: center;
+        }
+            /* for rotate X */
+        
+        .skill-item-x {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
+        .skill-item-x:hover {
+            transform: scale(1.05) rotate(-5deg);
+            box-shadow: 0 0 20px rgba(0, 246, 234, 0.775);
+            filter: brightness(1.5);
+        }
+
+        .skill-item-x img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            transition: transform 0.5s;
+        }
+
+        .skill-item-x:hover img {
+            transform: rotateY(-360deg);
+        }
+        /* end of rotate X */
         /* Social Media */
         .social {
             text-align: center;
@@ -407,8 +441,10 @@
             pointer-events: none;
             z-index: -1;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text fill="%2300d4ff" font-size="10" x="50" y="50">010101</text></svg>') repeat;
-            opacity: 0.1;
-            animation: scroll 10s linear infinite;
+            opacity: 0.4;
+            animation: scroll 20s linear infinite;
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff, 0 0 30px #00d4ff, 0 0 40px #00d4ff;
+            animation: glow-pulse 2s ease-in-out infinite alternate, glow-rotate 5s linear infinite;
         }
 
         @keyframes scroll {
@@ -463,12 +499,48 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             padding: 10px;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .editor-item:hover img {
-            transform: rotateY(360deg);
+            transform: rotateZ(360deg);
         }
+        /* -z mocde */
+
+            .editor-item-z {
+            width: 150px;
+            height: 150px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            transition: transform 0.4s, box-shadow 0.4s, filter 0.4s;
+        }
+
+        .editor-item-z:hover {
+            transform: scale(1.15) rotate(-10deg);
+            box-shadow: 0 0 35px rgba(0, 255, 200, 0.8);
+            filter: brightness(1.3);
+        }
+
+        .editor-item-z img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .editor-item-z:hover img {
+            transform: rotateZ(-360deg);
+        }
+        /* end of -z mode */
         /* Achievements Section */
         .achievements {
             text-align: center;
@@ -745,7 +817,13 @@
         box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
         overflow: hidden;
         }
-
+        .iot-widget:hover {
+            transform: scale(1.09);
+            box-shadow: 0 0 35px rgba(48, 207, 255, 0.8);
+            filter: brightness(2);
+            filter:blur(1);
+            transition: transform  0.8s ease-out;
+        }
         /* Border gradient bergerak (hijau → ungu → biru) */
         .iot-widget::before {
         content: "";
@@ -973,9 +1051,663 @@
         transform: scale(1.05);
         }
 
+        /* === Mini Music Player Styles === */
+        .music-player {
+        position: fixed;
+        bottom: 25px;
+        right: 0;
+        transform: translateX(260px); /* sembunyi dulu */
+        transition: transform 0.6s ease;
+        background: rgba(10, 10, 10, 0.75);
+        border-radius: 16px 0 0 16px;
+        backdrop-filter: blur(12px);
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #fff;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        border-left: 1px solid rgba(0, 255, 255, 0.2);
+        z-index: 1000;
+        width: 240px;
+        }
+
+        .music-player.visible {
+        transform: translateX(0);
+        }
+
+        .music-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        }
+
+        .music-info p {
+        margin: 0;
+        font-weight: 600;
+        font-size: 1rem;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+        }
+
+        .music-info span {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        }
+
+        /* Tombol Play */
+        .play-btn {
+        background: linear-gradient(135deg, #00ffee, #007bff, #9f6bff);
+        background-size: 300%;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        color: white;
+        font-size: 1.1rem;
+        box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+        animation: gradientRotate 6s linear infinite;
+        }
+
+        @keyframes gradientRotate {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+        }
+
+        .play-btn:hover {
+        box-shadow: 0 0 18px rgba(0, 255, 255, 0.7);
+        transform: scale(1.05);
+        }
+
+        /* Tombol Toggle */
+        .music-toggle {
+        position: fixed;
+        bottom: 40px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        background: rgba(0, 255, 255, 0.15);
+        border: 1px solid rgba(0, 255, 255, 0.4);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: cyan;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        z-index: 1001;
+        }
+
+        .music-toggle:hover {
+        background: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+        transform: scale(1.1);
+        }
+
+        /* === Video Background Styles === */
+
+        /* Variabel opacity biar gampang diatur */
+        /* :root {
+        --video-opacity: 0.9; /* ubah nilainya untuk atur transparansi */
+
+
+        body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(-80deg, #0a0a0a, #1a1a2e, #16213e, #0f3460, #352848);
+        background-size: 400% 400%;
+        animation: gradientShift 30s ease infinite;
+        mix-blend-mode: overlay; /* kunci utamanya */
+        opacity: 0.7;
+        z-index: 0;
+        pointer-events: none;
+        }
+
+        .cyber-dot {
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: #00d4ff; /* warna utama (bisa lo ubah jadi ungu/biru neon) */
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: drift 12s linear infinite;
+        z-index: 0;
+        }
+
+        @keyframes drift {
+        0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        .floating-cube {
+        position: fixed;
+        width: 80px;
+        height: 80px;
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        background: rgba(0, 212, 255, 0.05);
+        animation: rotateCube 25s linear infinite;
+        z-index: 0;
+        }
+
+        @keyframes rotateCube {
+        0% { transform: rotateX(0) rotateY(0); opacity: 0.4; }
+        50% { transform: rotateX(180deg) rotateY(180deg); opacity: 0.6; }
+        100% { transform: rotateX(360deg) rotateY(360deg); opacity: 0.4; }
+        }
+
+        .data-field {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            linear-gradient(to right, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 60px 60px; /* ubah nilai ini untuk jarak antar garis */
+        animation: gridGlow 5s linear infinite alternate;
+        z-index: 0;
+        pointer-events: none;
+        }
+
+        @keyframes gridGlow {
+        0% {
+            opacity: 0.2;
+            filter: brightness(1);
+        }
+        100% {
+            opacity: 0.5;
+            filter: brightness(1.4);
+        }
+        }
+
+        .smoke {
+        position: fixed;
+        width: 120%;
+        height: 120%;
+        background: radial-gradient(circle at 50% 50%, rgba(0,255,255,0.07), transparent 70%);
+        filter: blur(100px);
+        animation: smokeMove 60s ease-in-out infinite alternate;
+        z-index: 0;
+        pointer-events: none; /* ✅ penting banget */
+        }
+        .aurora {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 20% 50%, rgba(0,255,200,0.08), transparent 70%),
+                    radial-gradient(circle at 80% 50%, rgba(255,0,255,0.08), transparent 70%);
+        animation: auroraShift 40s ease-in-out infinite alternate;
+        z-index: 1;
+        pointer-events: none; /* ✅ */
+        }
+        .bokeh {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 2;
+        pointer-events: none; /* ✅ */
+        }
+        .bokeh span {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        filter: blur(20px);
+        animation: floatBokeh 25s infinite ease-in-out;
+        opacity: 0.3;
+        }
+
+        /* main content */
+        .main-content, .music-player {
+        position: fixed;
+        z-index: 10;
+        }
+        /* end of main content position */
+        /* CLI SECTION */
+        /* ===== Terminal Section ===== */
+        .terminal-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 40vh;
+        background: transparent;
+        padding: 2rem;
+        z-index: 10;
+        }
+
+        .terminal {
+        width: 80%;
+        max-width: 700px;
+        background: rgba(10, 10, 20, 0.8);
+        border: 2px solid rgba(0, 255, 150, 0.3);
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(0, 255, 150, 0.3);
+        font-family: "Courier New", monospace;
+        overflow: hidden;
+        color: #00ff99;
+        }
+
+        .terminal-header {
+        display: flex;
+        align-items: center;
+        padding: 8px 15px;
+        background: rgba(0, 0, 0, 0.7);
+        }
+
+        .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+        }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+
+        .terminal-title {
+        color: #00ff99;
+        font-size: 0.9rem;
+        margin-left: auto;
+        opacity: 0.8;
+        }
+
+        .terminal-body {
+        padding: 15px;
+        font-size: 1rem;
+        line-height: 1.6;
+        white-space: pre-wrap;
+        animation: glowText 2s infinite alternate;
+        }
+
+        /* subtle glowing text */
+        @keyframes glowText {
+        from { text-shadow: 0 0 3px #00ff99; }
+        to { text-shadow: 0 0 10px #00ff99; }
+        }
+
+        /* END OF CLI SECTION */
+        /* section scroll type */
+        /* ===== Scroll Reveal Animation ===== */
+        .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        filter: blur(10px);
+        transition: all 1s ease;
+        }
+
+        .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+        }
+
+        /* Optional glowing accent saat muncul */
+        .reveal.active h2 {
+        text-shadow: 0 0 10px rgba(0,255,150,0.7);
+        }
+        /* end of section scroll type */
+        /* section network.bg */
+        /* ===== Glowing Network Background ===== */
+        #network-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0; /* biar di belakang semua elemen */
+        background: transparent;
+        pointer-events: none;
+        }
+        /* end of section */
+        /* section hud */
+        /* ===== Floating HUD Navigation ===== */
+        /* ===== Floating HUD Navigation (LEFT) ===== */
+        .hud-nav {
+        position: fixed;
+        bottom: 30px;
+        left: 30px; /* ⬅️ pindah ke kiri */
+        z-index: 999;
+        }
+
+        .hud-btn {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: none;
+        background: linear-gradient(135deg, #0ff, #00f);
+        color: #fff;
+        box-shadow: 0 0 20px rgba(0,255,200,0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.4rem;
+        }
+
+        .hud-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(0,255,200,0.7);
+        }
+
+        .hud-menu {
+        position: absolute;
+        bottom: 80px;
+        left: 0; /* ⬅️ arah muncul dari kiri bawah */
+        display: flex;
+        flex-direction: column;
+        background: rgba(15, 15, 30, 0.85);
+        border-radius: 12px;
+        padding: 10px;
+        box-shadow: 0 0 20px rgba(0,255,200,0.4);
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        transition: all 0.4s ease;
+        }
+
+        .hud-menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+        }
+
+        .hud-menu a {
+        color: #0ff;
+        text-decoration: none;
+        margin: 8px 0;
+        font-weight: 600;
+        transition: all 0.2s;
+        }
+
+        .hud-menu a:hover {
+        color: #fff;
+        text-shadow: 0 0 8px #0ff;
+        }
+
+        /* end of section */
+        /* ai chat */
+        /* ===== AI Chat Assistant (LEFT) ===== */
+        .chat-fab {
+        position: fixed;
+        bottom: 110px;
+        left: 30px; /* ⬅️ pindah ke kiri bawah */
+        background: linear-gradient(135deg, #00f, #8a2be2);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        box-shadow: 0 0 20px rgba(0,0,255,0.5);
+        cursor: pointer;
+        z-index: 998;
+        transition: 0.3s;
+        }
+        .chat-fab:hover {
+        transform: scale(1.1);
+        }
+
+        .chat-bot {
+        position: fixed;
+        bottom: 120px;
+        left: 100px; /* ⬅️ biar muncul di samping kanan tombolnya */
+        width: 300px;
+        background: rgba(20, 20, 40, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 0 25px rgba(0,255,255,0.4);
+        color: white;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1000;
+        }
+
+        /* end of ai chat */
+        /* LIST ORDER */
+        .iot-section {
+        padding: 80px 30px;
+        color: #e0f7ff;
+        background: rgba(15, 20, 35, 0.7);
+        border-top: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.1) inset;
+        backdrop-filter: blur(8px);
+        }
+
+        .iot-title {
+        text-align: center;
+        font-size: 2.2rem;
+        color: #0ff;
+        text-shadow: 0 0 20px #0ff;
+        margin-bottom: 10px;
+        }
+
+        .iot-subtitle {
+        text-align: center;
+        font-style: italic;
+        color: #88ffff;
+        margin-bottom: 40px;
+        }
+
+        .iot-content {
+        max-width: 900px;
+        margin: 0 auto;
+        line-height: 1.7;
+        font-size: 1rem;
+        }
+
+        .iot-content h3 {
+        color: #0ff;
+        margin-top: 35px;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px #0ff;
+        }
+
+        .iot-list {
+        list-style: none;
+        padding-left: 0;
+        margin: 15px 0;
+        }
+
+        .iot-list li {
+        background: rgba(0, 255, 255, 0.05);
+        border-left: 3px solid #0ff;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+        }
+
+        .iot-list li:hover {
+        background: rgba(0, 255, 255, 0.1);
+        transform: translateX(5px);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+        }
+
+        .price {
+        color: #0ff;
+        font-weight: 600;
+        }
+
+        .iot-card {
+        background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 100, 255, 0.1));
+        border: 1px solid rgba(0, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        margin: 25px 0;
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        .iot-card h4 {
+        color: #0ff;
+        margin-bottom: 10px;
+        }
+
+        .iot-footer {
+        margin-top: 40px;
+        text-align: center;
+        font-style: italic;
+        color: #9ff;
+        opacity: 0.9;
+        }
+
+        .iot-footer strong {
+        color: #0ff;
+        }
+
+        /* END OF LIST ORDER */
+        /* list icon WA */
+        .iot-socials {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+        position: relative;
+        }
+
+        /* 🌐 Icon Style */
+        .iot-socials a {
+        text-decoration: none;
+        font-size: 3rem; /* lebih besar dari sebelumnya */
+        transition: all 0.3s ease;
+        filter: drop-shadow(0 0 10px rgba(0,255,255,0.4));
+        }
+
+        .iot-socials a.wa {
+        color: #25d366;
+        }
+
+        .iot-socials a.gh {
+        color: #ffffff;
+        }
+
+        /* ✨ Hover Effect */
+        .iot-socials a.wa:hover {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 20px #25d366);
+        }
+
+        .iot-socials a.gh:hover {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 20px #ffffff);
+        }
+
+        /* 💬 Bubble Text */
+        .wa-wrapper {
+        position: relative;
+        display: inline-block;
+        }
+
+        .wa-bubble {
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        background: rgba(20, 20, 40, 0.8);
+        color: #fff;
+        font-size: 0.9rem;
+        padding: 10px 14px;
+        border-radius: 10px;
+        white-space: nowrap;
+        box-shadow: 0 0 20px rgba(0,255,255,0.3);
+        border: 1px solid rgba(0,255,255,0.2);
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        transition: all 0.4s ease;
+        text-shadow: 0 0 6px #0ff;
+        z-index: 10;
+        }
+
+        /* 🫧 Bubble muncul pas hover */
+        .wa-wrapper:hover .wa-bubble {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+        }
+
+        /* 🔺 Bubble Pointer */
+        .wa-bubble::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 6px;
+        border-style: solid;
+        border-color: rgba(20, 20, 40, 0.8) transparent transparent transparent;
+        }
+
+        /* end of list wa */
+
+
     </style>
 </head>
 <body>
+    <!-- === Video Background === -->
+<!-- <video autoplay muted loop playsinline id="bgVideo">
+    <div class="video-overlay">
+        <source src="videobg.mp4" type="video/mp4">
+    </div>
+</video> -->
+<!-- section chat bot -->
+ <div class="chat-bot" id="chatBot">
+  <div class="chat-header">
+    <h4>Ask Anan 🤖</h4>
+    <button id="chatToggle">✖</button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <p><strong>AnanBot:</strong> Halo! Mau tanya apa tentang IoT atau project-ku? 😄</p>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Ketik pesanmu..." />
+    <button id="sendBtn">➤</button>
+  </div>
+</div>
+
+<button class="chat-fab" id="chatFab">
+  <i class="fa-solid fa-robot"></i>
+</button>
+
+ <!-- end of chat bot -->
+<!-- section CLI -->
+ <section id="terminal" class="terminal-section">
+  <div class="terminal">
+    <div class="terminal-header">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="terminal-title">anandhito@portfolio:~</span>
+    </div>
+    <div class="terminal-body" id="terminalBody"></div>
+  </div>
+</section>
+
+ <!-- end of section CLI -->
+<!-- SECTION HUD STYLE  -->
+ <!-- Floating HUD Navigation -->
+<div class="hud-nav" id="hudNav">
+  <button class="hud-btn" id="hudToggle">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <div class="hud-menu" id="hudMenu">
+    <a href="#terminal">💻 Terminal</a>
+    <a href="#skills">⚙️ Skills</a>
+    <a href="#iot">🌡️ IoT Data</a>
+    <a href="#projects">📁 Projects</a>
+    <a href="#social">📬 Contact</a>
+    <a href="#store">🛒My Store</a>
+  </div>
+</div>
+
+ <!-- END OF SECTION HUD -->
+<!-- inspiratif massage -->
+<!-- di footer -->
+<!-- end of inspiratif massage -->
     <!-- === Mini Music Player === -->
 <div class="music-player" id="musicPlayer">
   <div class="music-info">
@@ -989,9 +1721,43 @@
 </div>
 
     <div class="matrix-bg"></div> <!-- Subtle matrix effect -->
+    <!-- Efek Cyber Dust -->
+    <div id="cyberDust"></div>
+    <div class="floating-cube" style="top:10%;left:15%;"></div>
+    <div class="floating-cube" style="top:60%;right:10%;"></div>
+    <div class="floating-cube" style="bottom:20%;left:40%;"></div>
+    <!-- Efek Glowing Grid -->
+    <div class="data-field"></div>
+    <!-- 🌫️ Efek Smoke Blur -->
+    <div class="smoke"></div>
 
+    <!-- 🌈 Efek Aurora Light Sweep -->
+    <div class="aurora"></div>
+
+    <!-- 🎇 Efek Bokeh Neon -->
+    <div class="bokeh">
+    <span style="background:#00ffff; top:20%; left:15%;"></span>
+    <span style="background:#ff00ff; top:50%; left:40%;"></span>
+    <span style="background:#00ff99; top:70%; left:75%;"></span>
+    <span style="background:#0088ff; top:30%; left:80%;"></span>
+    <span style="background:#ff0088; top:60%; left:10%;"></span>
+    </div>
+
+<!-- section glow network.bg -->
+ <canvas id="network-bg"></canvas>
+<!-- end of section-->
     <!-- Floating Transparent 3D Shapes -->
     <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape">
+        <a style="color: cyan;">Arnand</a>
+    </div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+     <div class="floating-shape"></div>
     <div class="floating-shape"></div>
     <div class="floating-shape"></div>
     <div class="floating-shape"></div>
@@ -1010,8 +1776,7 @@
         <p class="c"> | ⚡ Electrical Engineering Enthusiast⚡ |</p>
         <p class="d"> | from Indonesia | especially Cikarang |</p>
     </header>
-
-    <section id="about" class="about">
+    <section id="about" class="about reveal">
         <img src="me.jpg" alt="Anandito Fernanda"> <!-- Placeholder image; replace with actual photo -->
         <div class="text-container">
             <h2 class="glow">About Me</h2>
@@ -1019,7 +1784,7 @@
         </div>
     </section>
 <!-- IoT dashboard -->
- <section class="iot-widget">
+ <section id="iot" class="iot-widget reveal">
   <h2 class="glow">Cuaca Di Bekasi</h2>
   <div class="iot-box">
     <p><strong>Suhu :</strong> <span id="temp">--</span> °C</p>
@@ -1027,14 +1792,14 @@
   </div>
 </section>
 <!-- end of IoT dashboard -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills reveal">
         <h2 class="glow">My Skills</h2>
         <div class="skills-grid">
             <div class="skill-item">
                 <img src="Arduino.png" alt="Arduino">
                 <p style="color:cyan">Arduino</p>
             </div>
-            <div class="skill-item">
+            <div class="skill-item-x">
                 <img src="ESP-bg-fix.png" alt="ESP"> <!-- Placeholder; ESP logo not standard, use actual if available -->
                 <p style="color: red;">Espressif (ESP)</p>
             </div>
@@ -1042,7 +1807,7 @@
                 <img src="IoT.jpeg" alt="IoT">
                 <p style="color:antiquewhite">IoT</p>
             </div>
-            <div class="skill-item">
+            <div class="skill-item-x">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++">
                 <p style="color:#0099cc">C++</p>
             </div>
@@ -1050,7 +1815,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" alt="C">
                 <p style="color:#0071fc">C</p>
             </div>
-            <div class="skill-item">
+            <div class="skill-item-x">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
                 <p style="color: orange">HTML</p>
             </div>
@@ -1058,7 +1823,7 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
                 <p style="color: rgb(53, 102, 249)">CSS</p>
             </div>
-            <div class="skill-item">
+            <div class="skill-item-x">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JS">
                 <p style="color: yellow;">Java Script</p>
             </div>
@@ -1066,11 +1831,15 @@
                 <img src="python.jpg" alt="python">
                 <p style="color:rgb(199, 152, 0)">PYTHON</p>
             </div>
+            <div class="skill-item-x">
+                <img src="bash-command.jpg" alt="bash command">
+                <p style="color:rgb(255, 255, 255)">Bash</p>
+            </div>
         </div>
     </section>
     <!-- Bar Skill -->
-     <section id="skill-levels" class="skill-levels">
-    <h2 class="glow">Skill Level</h2>
+     <section id="skill-levels" class="skill-levels reveal">
+    <h2 class="glow">Skill Level Bar</h2>
 
     <div class="skill-bar">
         <p>Arduino <span>85%</span></p>
@@ -1116,19 +1885,21 @@
         <p>Python <span>87%</span></p>
         <div class="bar"><div class="fill" style="width: 87%;"></div></div>
     </div>
+    <div class="skill-bar">
+        <p>Bash<span>37%</span></p>
+        <div class="bar"><div class="fill" style="width: 37%;"></div></div>
+    </div>
 </section>
-
     <!-- end of Bar Skill -->
-
     <!-- section code editor -->
-     <section id="editors" class="editors">
+     <section id="editors" class="editors reveal">
     <h2 class="glow">My Code Editors</h2>
     <div class="editors-grid">
         <div class="editor-item">
             <img src="https://code.visualstudio.com/assets/images/code-stable.png" alt="VS Code">
             <p style="color:#00aaff;">Visual Studio Code</p>
         </div>
-        <div class="editor-item">
+        <div class="editor-item-z">
             <img src="Arduino.png" alt="Arduino IDE">
             <p style="color:#00ffcc;">Arduino IDE</p>
         </div>
@@ -1139,7 +1910,7 @@
     </div>
 </section>
      <!-- end of section -->
-<!-- section logo -->
+<!-- section IoT tools -->
  <section id="tools" class="tools-section">
   <h2 class="section-title">🧰 IoT Tools & Platforms </h2>
   <div class="tools-container">
@@ -1155,7 +1926,7 @@
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
       <p>Firebase</p>
       <div class="tool-bar">
-        <div class="tool-progress" style="width: 70%;"></div>
+        <div class="tool-progress" style="width: 50%;"></div>
       </div>
     </div>
 
@@ -1163,7 +1934,7 @@
       <img src="blynk.png" alt="Blynk" />
       <p>Blynk</p>
       <div class="tool-bar">
-        <div class="tool-progress" style="width: 65%;"></div>
+        <div class="tool-progress" style="width: 75%;"></div>
       </div>
     </div>
 
@@ -1183,11 +1954,19 @@
       </div>
     </div>
 
+     <div class="tool-card">
+      <img src="WokWi.jpg" alt="WokWi" />
+      <p>WokWi</p>
+      <div class="tool-bar">
+        <div class="tool-progress" style="width: 97%;"></div>
+      </div>
+    </div>
+
     <div class="tool-card">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Proteus" />
       <p>Linux</p>
       <div class="tool-bar">
-        <div class="tool-progress" style="width: 60%;"></div>
+        <div class="tool-progress" style="width: 45%;"></div>
       </div>
     </div>
 
@@ -1203,7 +1982,7 @@
 
  <!-- end of section -->
 <!-- section prestasi -->
- <section id="achievements" class="achievements">
+ <section id="achievements" class="achievements reveal">
     <h2 class="glow">🏆 My Achievements</h2>
 
     <div class="achievement-list">
@@ -1234,7 +2013,7 @@
 
 <!-- end of section prestasi -->
  <!-- showcase projects -->
- <section id="projects" class="projects">
+ <section id="projects" class="projects reveal">
   <h2 class="glow">💡 My Projects</h2>
   <div class="projects-grid">
     <div class="project-card">
@@ -1247,7 +2026,7 @@
     <div class="project-card">
       <h3>Gyroscope Censor With 3D Digital design</h3>
       <p>Gyroscope sensor controls the movement of a digital 3D image</p>
-      <video controls poster="anouti-thumbnail.jpg" class="project-video">
+      <video controls poster="IoT.jpeg" class="project-video">
       <source src="gyroscope.mp4" type="video/mp4">
       Your browser does not support the video tag.
 </video>
@@ -1257,7 +2036,7 @@
       <h3>Ultrasonic Radar</h3>
       <p>Arduino-based radar system using HC-SR04 sensor and servo motor for object detection.</p>
       <div>
-       <video controls poster="anouti-thumbnail.jpg" class="project-video">
+       <video controls poster="IoT.jpeg" class="project-video">
        <source src="ultrasonic-radar.mp4" type="video/mp4">
       </div>
       <a href="#" class="project-link">🔗 View Project</a>
@@ -1274,7 +2053,88 @@
   </div>
 </section>
 <!-- end of showcase -->
-    <section id="social" class="social">
+ <!-- start list order -->
+  <section id="store" class="iot-section reveal">
+  <h2 class="iot-title glow">⚙️ Arnan IoT Store</h2>
+  <p class="iot-subtitle glow">Solusi IoT dan Robotik dari Coding sampai Alat Jadi</p>
+
+  <div class="iot-content">
+    <p>
+      <strong>Arnan IoT Store</strong> adalah layanan jasa yang bergerak di bidang 
+      <strong>Internet of Things (IoT)</strong> dan robotik, berfokus pada pembuatan proyek, 
+      solusi alat pintar, serta pengerjaan coding berbasis mikrokontroler seperti 
+      <em>Arduino, ESP8266, WeMos, NodeMCU</em>, dan sejenisnya.
+    </p>
+
+    <p>
+      Layanan ini cocok untuk berbagai kebutuhan — mulai dari tugas sekolah, proyek kuliah, skripsi,
+      lomba teknologi, hingga pengembangan ide bisnis berbasis IoT. 
+      Semua proyek dikerjakan secara online (*Pre-Order*) dan bisa disesuaikan berdasarkan 
+      tingkat kesulitan serta jenis board yang digunakan.
+    </p>
+
+    <h3 class="glow">💻 Kategori Jasa Coding</h3>
+    <ul class="iot-list">
+      <li><strong>🔹 Basic Project</strong> — Proyek sederhana (1 sensor) seperti suhu atau jarak.<br><span class="price">💰 Rp50.000</span></li>
+      <li><strong>🔹 Intermediate Project</strong> — 2–3 sensor + komunikasi dasar (WiFi/Bluetooth).<br><span class="price">💰 Rp60.000 – Rp80.000</span></li>
+      <li><strong>🔹 Advanced Project</strong> — Integrasi kompleks, database, otomatisasi.<br><span class="price">💰 Rp100.000 – Rp120.000</span></li>
+    </ul>
+
+    <p class="note">
+      💡 Kisaran harga jasa coding: <strong>Rp50.000 – Rp300.000</strong><br>
+      Semua proyek bergaransi dan dapat direvisi bila ditemukan kesalahan fungsi.
+    </p>
+
+    <h3 class="glow">🧩 Fitur Tambahan / Add-On</h3>
+    <ul class="iot-list">
+      <li>📘 Penjelasan detail coding — <span class="price">Rp35.000</span></li>
+      <li>💬 Penjelasan singkat coding — <span class="price">Rp25.000</span></li>
+      <li>🧰 Konsultasi online — <span class="price">Rp20.000</span></li>
+      <li>🎞 Penjelasan alat (PPT) — <span class="price">Rp25.000</span></li>
+      <li>📄 Penjelasan alat (Word) — <span class="price">Rp15.000</span></li>
+    </ul>
+
+    <div class="iot-card">
+      <h4 class="glow">💠 Paket Lengkap (All-in-One)</h4>
+      <p class="iot-card">Tambahan Rp70.000 dari harga utama — dapat semua fitur di atas! Cocok buat hasil rapi dan siap presentasi.</p>
+    </div>
+
+    <h3 class="glow">🔧 Contoh Proyek</h3>
+    <ul class="iot-list">
+      <li>🏠 Smart Home (WiFi / Bluetooth Control)</li>
+      <li>🌡 Smart Temperature Monitoring</li>
+      <li>📏 Penggaris Digital Otomatis</li>
+      <li>🛰 Ultrasonic Sensor Radar / Mapping</li>
+      <li>🤖 Custom Robotik & IoT Project</li>
+    </ul>
+
+    <div class="iot-footer glow">
+      <p><strong>📍 Arnan IoT Store</strong><br>
+      “Solusi IoT dan robotik dari coding sampai alat jadi.”<br>
+      🛠 Semua layanan dilakukan secara <em>online (Pre-Order)</em> dan dijamin berkualitas.</p>
+    </div>
+  </div>
+</section>
+<!-- SECTION WA NUMBER -->
+<div class="iot-socials">
+  <div class="wa-wrapper">
+        <a href="https://wa.me/6287870330366?text=Halo%21%20Saya%20mau%20pesan%20jasa%20coding%20dari%20Arnan%20IoT%20Store." 
+        target="_blank" 
+        class="wa">
+        <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </a>
+    <div class="wa-bubble">💬 Kalau mau order chat gue ya!</div>
+  </div>
+
+  <a href="https://github.com/usernamekamu" target="_blank" class="gh">
+    <i class="fa-brands fa-github"></i>
+  </a>
+</div>
+
+<!-- end of section wa number -->
+<!-- end of list order -->
+    <section id="social" class="social reveal">
         <h2 class="glow">» Connect with Me «</h2>
         <a href="https://instagram.com/arcdit_" target="_blank">📍 Personal Account</a>
         <a href="https://instagram.com/ngoding_iot.id" target="_blank">💡 Business Account</a>
@@ -1284,7 +2144,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2023 Anandito Fernanda. Built with passion for IoT, programming, and information about me.</p>
+        <p>&copy; 2023 Anandhito Ernanda. Built with passion for IoT, programming, list order, and information about me.</p>
         <p style="color:#00ff00"> Contact me for collaboration and professional projects.</p>
     </footer>
 
@@ -1337,10 +2197,9 @@ updateWeather();
 setInterval(updateWeather, 600000);
 // === Scroll Animation ===
 const toolCards = document.querySelectorAll('.tool-card');
-
 function checkVisibility() {
   const triggerBottom = window.innerHeight * 0.85;
-
+  
   toolCards.forEach(card => {
     const boxTop = card.getBoundingClientRect().top;
 
@@ -1371,7 +2230,152 @@ playBtn.addEventListener('click', () => {
   }
 });
 
+  const container = document.getElementById("cyberDust");
 
-    </script>
+  for (let i = 0; i < 40; i++) {
+    const dot = document.createElement("div");
+    dot.className = "cyber-dot";
+    dot.style.left = Math.random() * 100 + "vw";
+    dot.style.animationDelay = Math.random() * 12 + "s";
+    container.appendChild(dot);
+  }
+
+  const terminalBody = document.getElementById("terminalBody");
+
+const lines = [
+  "> Initializing portfolio system...",
+  "> Connecting to anandhito.myServer101 ...",
+  "> Connection established ✅",
+  "> Loading modules: [ Arduino, ESP, IoT, Python, HTML, CSS, JS ]",
+  "> System online. Welcome back, Anan 🚀",
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+let currentLine = "";
+let typingSpeed = 60; // kecepatan ketik (ms)
+
+function typeLine() {
+  if (lineIndex < lines.length) {
+    currentLine = lines[lineIndex].slice(0, charIndex++);
+    terminalBody.innerHTML = lines
+      .slice(0, lineIndex)
+      .join("<br>") + "<br>" + currentLine + "|";
+
+    if (charIndex <= lines[lineIndex].length) {
+      setTimeout(typeLine, typingSpeed);
+    } else {
+      charIndex = 0;
+      lineIndex++;
+      setTimeout(typeLine, 700);
+    }
+  } else {
+    terminalBody.innerHTML += "<br><span style='color:#66ffff;'>> Portfolio ready ✔</span>";
+  }
+}
+
+window.onload = typeLine;
+
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const elementTop = reveals[i].getBoundingClientRect().top;
+    const revealPoint = 100; // jarak sebelum muncul
+
+    if (elementTop < windowHeight - revealPoint) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll(); // biar efek langsung aktif di awal
+
+const hudToggle = document.getElementById("hudToggle");
+const hudMenu = document.getElementById("hudMenu");
+
+hudToggle.addEventListener("click", () => {
+  hudMenu.classList.toggle("active");
+});
+// ai chat
+const chatFab = document.getElementById("chatFab");
+const chatBot = document.getElementById("chatBot");
+const chatToggle = document.getElementById("chatToggle");
+const sendBtn = document.getElementById("sendBtn");
+const userInput = document.getElementById("userInput");
+const chatBody = document.getElementById("chatBody");
+
+chatFab.addEventListener("click", () => {
+  chatBot.style.display = "flex";
+  chatFab.style.display = "none";
+});
+
+chatToggle.addEventListener("click", () => {
+  chatBot.style.display = "none";
+  chatFab.style.display = "block";
+});
+
+sendBtn.addEventListener("click", sendMessage);
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
+
+function sendMessage() {
+  const msg = userInput.value.trim();
+  if (msg === "") return;
+
+  chatBody.innerHTML += `<p><strong>Kamu:</strong> ${msg}</p>`;
+  userInput.value = "";
+
+  let reply = "";
+  if (msg.toLowerCase().includes("iot"))
+    reply = "IoT itu tentang menghubungkan perangkat ke internet untuk berbagi data! 🌐";
+  else if (msg.toLowerCase().includes("arduino"))
+    reply = "Arduino itu mikrokontroler yang bisa lo program buat kontrol sensor dan aktuator ⚙️";
+  else if (msg.toLowerCase().includes("halo"))
+    reply = "Halo juga! 😄 Ada yang bisa aku bantu?";
+  else
+    reply = "Menarik banget! Tapi aku masih belajar memahami topik itu 🤖";
+
+  setTimeout(() => {
+    chatBody.innerHTML += `<p><strong>AnanBot:</strong> ${reply}</p>`;
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }, 600);
+}
+
+// end of ai chat
+//hud 
+ // ambil semua link di HUD
+  const hudLinks = document.querySelectorAll('#hudMenu a');
+
+  hudLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+      // optional: prevent default anchor jump untuk smooth scroll
+      e.preventDefault();
+
+      const href = this.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
+
+      const targetId = href.slice(1); // hapus #
+      const targetEl = document.getElementById(targetId);
+
+      if (targetEl) {
+        // smooth scroll ke target
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        console.warn('HUD link target not found:', targetId);
+      }
+
+      // tutup menu HUD setelah klik (jika ada)
+      const hudMenu = document.getElementById('hudMenu');
+      hudMenu.classList.remove('active');
+    });
+  });
+// end of hud
+
+    </script
 </body>
 </html>
